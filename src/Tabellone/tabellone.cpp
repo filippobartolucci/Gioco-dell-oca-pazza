@@ -27,22 +27,11 @@ tab initTabellone(){
 
 void stampaTabellone(tab t){
    
-    /*
-    if (t!=NULL){
-        std::cout<<t->c.getTipo()<<"\t";
-        stampaTabellone(t->next);
-    }
-    */
-    
     int i=1;
     while (t!=NULL){
-        cout <<i<<"-  "<<(t->c.getTipo())<<endl;
+        cout <<i<<"-  "<<(t->c.getNomeTipo())<<endl;
         t=t->next;
         i++;
     }
-    /*
-    for (int i=0;t!=NULL;i++){
-        cout <<i+1<<"- "<<(t->c.getTipo());
-    }*/
     
 }

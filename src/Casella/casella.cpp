@@ -44,6 +44,7 @@ void casella::setArrivo(){
     this->tipo=Arrivo;
 }
 
+
 void casella::effetto(){
     switch (this->tipo) {
         
@@ -81,6 +82,35 @@ void casella::effetto(){
     
     
 }
-tipo casella::getTipo(){
-    return this->tipo;
+
+string casella::getNomeTipo(){
+    switch (this->tipo) {
+        case Vuota:
+            return "Vuota";
+            break;
+            
+        case Avanti:
+            return "Avanti";
+            break;
+            
+        case Indietro:
+            return "Indietro";
+            break;
+            
+        case Pesca:
+            return "Pesca";
+            break;
+            
+        case Fermo:
+            return "Vuota";
+            break;
+            
+        case Domanda:
+            return "Domanda";
+            break;
+            
+        case Arrivo:
+            return "Arrivo";
+            break;
+    }
 }
