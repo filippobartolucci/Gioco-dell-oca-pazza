@@ -6,12 +6,13 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-
 #include <string>
 #include <iostream>
 #include <stdlib.h>
 
+
 using namespace std;
+
 
 class giocatore{
     
@@ -19,6 +20,7 @@ protected:
     char nome[30];
     int punti;
     int posizione;
+    typedef giocatore *lista_giocatori;
     
 public:
     
@@ -30,6 +32,9 @@ public:
      */
     
     void initGiocatore();
+    
+    char addColor(char n[], size_t length);
+    
     
     
     /*
