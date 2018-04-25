@@ -37,7 +37,7 @@ casella::casella(){
 }
 
 void casella::setInizio(){
-    this->tipo=Vuota;
+    this->tipo=Inizio;
 }
 
 void casella::setArrivo(){
@@ -47,6 +47,9 @@ void casella::setArrivo(){
 
 void casella::effetto(){
     switch (this->tipo) {
+        case Inizio:
+            
+            break;
         
         case Vuota:
             std::cout<<"Casella Vuota"<<endl;
@@ -85,6 +88,10 @@ void casella::effetto(){
 
 string casella::getNomeTipo(){
     switch (this->tipo) {
+        case Inizio:
+            return "Inizio";
+            break;
+            
         case Vuota:
             return "Vuota";
             break;

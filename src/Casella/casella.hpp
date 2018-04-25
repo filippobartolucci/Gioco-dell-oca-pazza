@@ -9,6 +9,7 @@
 using namespace std;
 
 enum tipo {
+    Inizio,
     Vuota,
     Avanti,
     Indietro,
