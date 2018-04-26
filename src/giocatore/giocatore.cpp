@@ -6,8 +6,7 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 
 #include "giocatore.hpp"
-
-
+#include "Colors.cpp"
 
 giocatore::giocatore(char n[], int pos){
     
@@ -37,7 +36,9 @@ void giocatore::initGiocatore(){
         
     }
     
-    giocatore *giocatori[n_giocatori];
+    
+    
+    lista_giocatori giocatori[n_giocatori];
     char n[30];
     
     for (int i = 1; i <= n_giocatori; i++){
@@ -45,10 +46,18 @@ void giocatore::initGiocatore(){
         cout << " - Inserire il nome del giocatore " << i << ": ";
         cin >> n;
         giocatori[i] = new giocatore(n, i);
+        addColor(giocatori[i]->nome, strlen(giocatori[i]->nome));
         
     }
 }
 
+
+char giocatore::addColor(char n[], size_t length){
+    char tmp[length];
+    strcpy(tmp, n);
+    string colorName = setColor();
+    
+}
 
 void giocatore::Dado::lanciaDado(){
     
