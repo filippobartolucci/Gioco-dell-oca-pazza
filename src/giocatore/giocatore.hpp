@@ -9,6 +9,7 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include "Colors.cpp"
 
 
 using namespace std;
@@ -17,29 +18,39 @@ using namespace std;
 class giocatore{
     
 protected:
-    char nome[30];
-    int punti;
+    
+    char nome[40];
+    int numTurni;
     int posizione;
+    Color color;
+    
     typedef giocatore *lista_giocatori;
     
 public:
     
-    giocatore(char n[], int pos);
-
-    
-    /*
-     Inizializzo il vettore di giocatori che partecipano
-     */
+    giocatore(char n[40], int pos);
     
     void initGiocatore();
     
-    char addColor(char n[], size_t length);
+    void setPos(int p);
+    
+    int getPos();
+    
+    const char* setColorPlayer(char n[], size_t length);
+    
+    void setNumTurni(int n);
+    
+    int getnumTurni();
+    
+    bool saltaTurno();
+    
+    void decTurni();
     
     
     
-    /*
-     Creo la classe Dado
-    */
+    
+    //Creo la classe Dado
+    
     
     class Dado{
     public:
