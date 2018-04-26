@@ -10,26 +10,30 @@
 
 using namespace color;
 
-
+Color::Color(){}
 /*
  Funzioni per impostare i colori
 */
 
 
-string setRed(){
+const char* setRed(){
     return RED;
 }
 
-string setBlue(){
+const char* setBlue(){
     return BLUE;
 }
 
-string setYellow(){
+const char* setYellow(){
     return YELLOW;
 }
 
-string setGreen(){
+const char* setGreen(){
     return GREEN;
+}
+
+const char* setDefault(){
+    return DEFAULT;
 }
 
 
@@ -39,7 +43,7 @@ string setGreen(){
 */
 
 
-string setColor(){
+const char* setColor(){
     
     int random = rand() % 4 + 1;
     
