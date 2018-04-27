@@ -10,7 +10,6 @@
 #include <iostream>
 #include "casella.hpp"
 
-
 tabellone::tabellone(){
     this->dim=(rand() % 41) + 58;
     this->caselle[0].setInizio();
@@ -18,8 +17,19 @@ tabellone::tabellone(){
 }
 
 void tabellone::stampaTabellone(){
-    for (int i=0;i<=dim;i++){
-        cout<<i<<"- "<< this->caselle[i].getNomeTipo()<<endl;
+    int n=this->getDim()/2;
+    
+    for (int i=0;i<=9;i++){
+        cout<<"0"<<i<<"- "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<"- "<<this->caselle[i+n+1].getNomeTipo()<<endl;
+    }
+    
+    for (int i=10;i<=n;i++){
+        if (i+n<=this->getDim()){
+            cout<<i<<"- "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<"- "<<this->caselle[i+n].getNomeTipo()<<endl;
+        }else{
+            cout<<i<<"- "<< this->caselle[i].getNomeTipo()<<"\t"<<endl;
+        }
+        
     }
 }
 
@@ -31,35 +41,3 @@ void tabellone::effetto(int n){
     this->caselle[n].effetto();
 }
 
-
-
-// Realizzazione del tabellone tramite lista di caselle
-
-/*
-tab initTabellone(){
-    tab head=new tabellone;
-    tab t=head;
-    
-    head->c.setInizio();
-    
-    for (int i=0;i<(rand() % 41) + 59;i++){
-        t->next=new tabellone;
-        t=t->next;
-    }
-    t->c.setArrivo();
-    t->next=NULL;
-
-    return head;
-}
-
-void stampaTabellone(tab t){
-   
-    int i=1;
-    while (t!=NULL){
-        cout <<i<<"-  "<<(t->c.getNomeTipo())<<endl;
-        t=t->next;
-        i++;
-    }
-    
-}
-*/

@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Enumaration per gestire i vari tipi di caselle
 enum tipo {
     Inizio,
     Vuota,
