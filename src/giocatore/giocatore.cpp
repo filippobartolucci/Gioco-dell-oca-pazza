@@ -5,10 +5,11 @@
 //  Created by Francesco Cerio on 17/03/18.
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 
-#include "giocatore.hpp"
+#include "giocatore.h"
+#include "Colors.hpp"
 
 
-giocatore::giocatore(char n[40], int pos){
+giocatore::giocatore(char n[MAX_CHAR_NAME], int pos){
     
     strcpy(this->nome, n);
     setPos(pos);
@@ -30,9 +31,9 @@ void giocatore::initGiocatore(){
     while(n_giocatori < 2 || n_giocatori > 4){
         
         cout << " - Il numero di giocatori deve essere minimo 2 - " << endl;
-        cout << " - Inserire il numero di partecipanti maggiore di 2: ";
+        cin.ignore();
+        cout << " - Inserire il numero di partecipanti (da 1 a 4): ";
         cin >> n_giocatori;
-        
     }
     
     lista_giocatori giocatori[n_giocatori];
@@ -40,10 +41,15 @@ void giocatore::initGiocatore(){
     
     for (int i = 1; i <= n_giocatori; i++){
         
-        cout << " - Inserire il nome del giocatore " << i << ": ";
+        cout << " * Inserire il nome del giocatore " << i << ": ";
         cin >> n;
         giocatori[i] = new giocatore(n, i);
-        setColorPlayer(giocatori[i]->nome, strlen(giocatori[i]->nome));
+        setColorPlayer(giocatori[i]->nome);
+        
+    }
+    for (int i = 1; i <= n_giocatori; i++){
+        cout << giocatori[i]->nome << endl;
+        cout << giocatori[i]->posizione << endl;
     }
 }
 
@@ -78,13 +84,13 @@ bool giocatore::saltaTurno(){
 
 /*
  + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
-   1 - la prima parte contiene il codice ANSI per il colore ( scelto casualmente da setColor() )
-   2 - la seconda parte contiene il nome del giocatore
-   2 - la terza parte contiene il codice ANSI che resetta il colore di deafult tramite setDefault()
+   1 - codice ANSI per il colore ( scelto casualmente da setColor() )
+   2 - il nome del giocatore
+   3 - codice ANSI che resetta il colore di deafult tramite setDefault()
 */
 
-const char* giocatore::setColorPlayer(char n[40], size_t length){
-    char* colorName = (char*)malloc(length);
+const char* giocatore::setColorPlayer(char n[40]){
+    char* colorName = (char*)malloc(MAX_CHAR_NAME);
     strcpy(colorName, setColor());
     strcat(colorName, n);
     strcat(colorName, setDefault());

@@ -1,20 +1,17 @@
 //
 //  Colors.cpp
-//  GOP
+//  Gioco dell'oca pazza
 //
-//  Created by Francesco Cerio on 21/04/18.
+//  Created by Francesco Cerio on 28/04/18.
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#include "Colors.hpp"
+#include "Colors.h"
+#include <stdlib.h>
 
-using namespace color;
-
-Color::Color(){}
 /*
  Funzioni per impostare i colori
-*/
-
+ */
 
 const char* setRed(){
     return RED;
@@ -40,7 +37,7 @@ const char* setDefault(){
 /*
  Funzione per impostare il colore ai nomi dei giocatori
  in modo casuale tramite rand()
-*/
+ */
 
 
 const char* setColor(){
@@ -57,8 +54,4 @@ const char* setColor(){
         return setGreen();
     }
 }
-
-
-
-
 

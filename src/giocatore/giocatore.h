@@ -6,10 +6,14 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
+#ifndef giocatore_hpp
+#define giocatore_hpp
+
+#define MAX_CHAR_NAME 40
 #include <string>
 #include <iostream>
 #include <stdlib.h>
-#include "Colors.cpp"
+//#include "Colors.cpp"
 
 
 using namespace std;
@@ -17,18 +21,17 @@ using namespace std;
 
 class giocatore{
     
-protected:
+private:
     
-    char nome[40];
+    char nome[MAX_CHAR_NAME];
     int numTurni;
     int posizione;
-    Color color;
     
     typedef giocatore *lista_giocatori;
     
 public:
     
-    giocatore(char n[40], int pos);
+    giocatore(char n[MAX_CHAR_NAME], int pos);
     
     void initGiocatore();
     
@@ -36,7 +39,7 @@ public:
     
     int getPos();
     
-    const char* setColorPlayer(char n[], size_t length);
+    const char* setColorPlayer(char n[]);
     
     void setNumTurni(int n);
     
@@ -65,3 +68,5 @@ public:
     
 
 };
+
+#endif
