@@ -6,26 +6,26 @@
 
 
 casella::casella(){
-    int n=(rand() % 13) + 1;
+    int n=(rand() % 9) + 1;
     switch (n) {
             
-        case (9):
+        case (5):
             this->tipo=Avanti;
             break;
         
-        case (10):
+        case (6):
             this->tipo=Indietro;
             break;
             
-        case (11):
+        case (7):
             this->tipo=Pesca;
             break;
             
-        case (12):
+        case (8):
             this->tipo=Fermo;
             break;
             
-        case (13):
+        case (9):
             this->tipo=Domanda;
             break;
             
@@ -34,6 +34,7 @@ casella::casella(){
             this->tipo=Vuota;
             break;
     }
+
 }
 
 void casella::setInizio(){
@@ -89,15 +90,15 @@ void casella::effetto(){
 string casella::getNomeTipo(){
     switch (this->tipo) {
         case Inizio:
-            return "Inizio";
+            return "Inizio  ";
             break;
             
         case Vuota:
-            return "Vuota";
+            return "Vuota   ";
             break;
             
         case Avanti:
-            return "Avanti";
+            return "Avanti  ";
             break;
             
         case Indietro:
@@ -105,19 +106,19 @@ string casella::getNomeTipo(){
             break;
             
         case Pesca:
-            return "Pesca";
+            return "Pesca   ";
             break;
             
         case Fermo:
-            return "Vuota";
+            return "Vuota   ";
             break;
             
         case Domanda:
-            return "Domanda";
+            return "Domanda ";
             break;
             
         case Arrivo:
-            return "Arrivo";
+            return "Arrivo  ";
             break;
     }
 }
