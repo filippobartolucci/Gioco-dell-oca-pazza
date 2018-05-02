@@ -7,16 +7,15 @@
 
 #ifndef SCAMBIAPOSIZIONE_H_
 #define SCAMBIAPOSIZIONE_H_
-#include "Card.h"
+
+#include "Gioco.hpp"
+#include "Carta.hpp"
 
 class Scambia_Posizione : public Carta {
 
-private:
-	char messaggio[lung];
-
 public:
 	Scambia_Posizione();
-	// void effetto_carta(Gioco* gioco)
+	void effetto_carta(Gioco* gioco);
 	virtual ~Scambia_Posizione();
 };
 
