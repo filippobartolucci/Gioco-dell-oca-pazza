@@ -30,32 +30,36 @@ domanda domande[] = {
 };
 
 
-int num_domande = sizeof(domande);
+int num_domande = sizeof(domande)/sizeof(*domande);
 
 
 domanda scegliDomanda(){
     srand((unsigned)time(NULL));
-    int random = rand()%num_domande + 1;
+    int random = rand()%num_domande;
     return domande[random];
 }
 
 
-void ask(){
+bool ask(){
     
     domanda d = scegliDomanda();
-    char risposta;
+    char risposta = ' ';
     
-    int i = 0;
-    while (d.dom[i] != '\0'){
-        cout << d.dom[i];
-        i++;
+    cout << d.dom << endl << endl;
+    
+    for(int i = 0; i < NUM_RISPOSTE; i++){
+        cout << d.risposta[i] << endl;
     }
     
+    cout << endl;
     cin >> risposta;
     
+    bool isTrue = false;
     if(risposta == d.giusta){
         cout << "La risposta è corretta!" << endl;
+        isTrue = true;
     } else {
         cout << "Risposta errata!" << endl;
     }
+    return isTrue;
 }
