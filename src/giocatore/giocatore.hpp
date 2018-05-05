@@ -1,14 +1,19 @@
 //
-//  Giocatore.h
+//  Giocatore.hpp
 //  GOP
 //
 //  Created by Francesco Cerio on 17/03/18.
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
+#ifndef giocatore_hpp
+#define giocatore_hpp
+
+#define MAX_CHAR_NAME 40
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+//#include "Colors.cpp"
 
 
 using namespace std;
@@ -16,30 +21,39 @@ using namespace std;
 
 class giocatore{
     
-protected:
-    char nome[30];
-    int punti;
+private:
+    
+    char nome[MAX_CHAR_NAME];
+    int numTurni;
     int posizione;
+    
     typedef giocatore *lista_giocatori;
     
 public:
     
-    giocatore(char n[], int pos);
-
-    
-    /*
-     Inizializzo il vettore di giocatori che partecipano
-     */
+    giocatore(char n[MAX_CHAR_NAME], int pos);
     
     void initGiocatore();
     
-    char addColor(char n[], size_t length);
+    void setPos(int p);
+    
+    int getPos();
+    
+    const char* setColorPlayer(char n[]);
+    
+    void setNumTurni(int n);
+    
+    int getnumTurni();
+    
+    bool saltaTurno();
+    
+    void decTurni();
     
     
     
-    /*
-     Creo la classe Dado
-    */
+    
+    //Creo la classe Dado
+    
     
     class Dado{
     public:
@@ -54,3 +68,5 @@ public:
     
 
 };
+
+#endif
