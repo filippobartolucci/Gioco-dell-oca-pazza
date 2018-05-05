@@ -1,5 +1,5 @@
 //
-//  Giocatore.h
+//  Giocatore.hpp
 //  GOP
 //
 //  Created by Francesco Cerio on 17/03/18.
