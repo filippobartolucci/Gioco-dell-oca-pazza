@@ -5,6 +5,9 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "giocatore.hpp"
+
+
 
 using namespace std;
 
@@ -39,9 +42,8 @@ public:
     // Necessario per inizializzare l'ultima casella del tabellone
     void setArrivo();
     
-    
+    enum tipo getTipo();
     string getNomeTipo();
-    void effetto();
 };
 
 
