@@ -5,8 +5,6 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "giocatore.hpp"
-
 
 
 using namespace std;

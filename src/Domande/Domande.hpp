@@ -22,7 +22,7 @@ struct domanda{
     char giusta;
 };
 
-void ask();
+bool ask();
 
 domanda segliDomanda();
 

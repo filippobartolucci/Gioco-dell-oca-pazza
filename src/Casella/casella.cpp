@@ -1,8 +1,6 @@
 //  casella.cpp
 
 #include "casella.hpp"
-#include "giocatore.hpp"
-#include "Domande.hpp"
 #include <cstdlib>
 #include <iostream>
 
@@ -76,7 +74,7 @@ string casella::getNomeTipo(){
             break;
             
         case Fermo:
-            return "Vuota   ";
+            return "Fermo   ";
             break;
             
         case Domanda:

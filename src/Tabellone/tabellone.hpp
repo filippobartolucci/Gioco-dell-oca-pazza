@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "casella.hpp"
+#include "../Giocatore/giocatore.hpp"
 
 #define MAX_DIM 100
 using namespace std;
@@ -23,6 +24,7 @@ public:
     
     int getDim();
     void effetto(giocatore &g);
+    casella getCasella(int n);
 };
 
 #endif /* tabellone_hpp */

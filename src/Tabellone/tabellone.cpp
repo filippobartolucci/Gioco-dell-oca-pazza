@@ -9,8 +9,8 @@
 #include "tabellone.hpp"
 #include <iostream>
 #include "../Casella/casella.hpp"
-#include "../Domande.hpp"
-#include "../giocatore.hpp"
+#include "../Giocatore/giocatore.hpp"
+#include "../Domande/Domande.hpp"
 #define spostamento 5
 
 tabellone::tabellone(){
@@ -27,6 +27,7 @@ void tabellone::stampaTabellone(){
     system("clear");
     
     cout<<endl;
+    
     for (int i=0;i<=9;i++){
         cout<<"| 0"<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1].getNomeTipo()<<endl;
     }
@@ -65,6 +66,7 @@ void tabellone::effetto(giocatore &g){
             } else {
                 g.setPos(g.getPos()+(g.getPos()+spostamento-dim)-1);
             }
+            cout << "Raggiungi la casella "<< g.getPos();
             break;
 
         case Indietro:
@@ -74,7 +76,7 @@ void tabellone::effetto(giocatore &g){
             } else {
                 g.setPos(0);
             }
-            
+            cout << "Raggiungi la casella "<< g.getPos();
             break;
 
         case Pesca:
@@ -89,7 +91,7 @@ void tabellone::effetto(giocatore &g){
 
         case Domanda:
             cout<<endl<<"Casella Domanda - Preparati a rispondere"<<endl<<endl;
-           if (ask()==true){
+            if (ask()==true){
                 if (g.getPos()+spostamento<=this->dim) {
                     g.setPos(g.getPos()+spostamento);
                 } else {
@@ -102,6 +104,7 @@ void tabellone::effetto(giocatore &g){
                     g.setPos(0);
                 }
             }
+            cout << "Raggiungi la casella "<< g.getPos();
             break;
 
         case Arrivo:
@@ -110,5 +113,11 @@ void tabellone::effetto(giocatore &g){
 
 
     }
+    
+   
+}
+
+casella tabellone::getCasella(int n){
+    return this->caselle[n];
 }
 

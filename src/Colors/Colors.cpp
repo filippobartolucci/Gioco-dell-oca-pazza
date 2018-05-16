@@ -6,8 +6,9 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#include "Colors.h"
+
 #include <stdlib.h>
+#include "Colors.h"
 
 /*
  Funzioni per impostare i colori
