@@ -6,7 +6,8 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 
 #include "giocatore.hpp"
-#include "Colors.hpp"
+#include "Colors.h"
+
 
 
 giocatore::giocatore(char n[MAX_CHAR_NAME], int pos){

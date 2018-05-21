@@ -4,28 +4,29 @@
 #include <cstdlib>
 #include <iostream>
 
+#define spostamento 5
 
 casella::casella(){
-    int n=(rand() % 9) + 1;
+    int n=(rand() % 8) + 1;
     switch (n) {
             
-        case (5):
+        case (4):
             this->tipo=Avanti;
             break;
         
-        case (6):
+        case (5):
             this->tipo=Indietro;
             break;
             
-        case (7):
+        case (6):
             this->tipo=Pesca;
             break;
             
-        case (8):
+        case (7):
             this->tipo=Fermo;
             break;
             
-        case (9):
+        case (8):
             this->tipo=Domanda;
             break;
             
@@ -46,45 +47,8 @@ void casella::setArrivo(){
 }
 
 
-void casella::effetto(){
-    switch (this->tipo) {
-        case Inizio:
-            
-            break;
-        
-        case Vuota:
-            std::cout<<"Casella Vuota"<<endl;
-            break;
-        
-        case Avanti:
-            
-            break;
-        
-        case Indietro:
-            
-            break;
-            
-        case Pesca:
-            
-            break;
-            
-        case Fermo:
-            
-            break;
-            
-        case Domanda:
-            
-            break;
-            
-        case Arrivo:
-            
-            break;
-        
-    }
-    
-    
-    
-    
+tipo casella::getTipo(){
+    return this->tipo;
 }
 
 string casella::getNomeTipo(){
@@ -110,7 +74,7 @@ string casella::getNomeTipo(){
             break;
             
         case Fermo:
-            return "Vuota   ";
+            return "Fermo   ";
             break;
             
         case Domanda:

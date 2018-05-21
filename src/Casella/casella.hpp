@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <iostream>
 
+
 using namespace std;
 
 // Enumaration per gestire i vari tipi di caselle
@@ -39,9 +40,8 @@ public:
     // Necessario per inizializzare l'ultima casella del tabellone
     void setArrivo();
     
-    
+    enum tipo getTipo();
     string getNomeTipo();
-    void effetto();
 };
 
 
