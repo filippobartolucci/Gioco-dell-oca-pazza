@@ -13,34 +13,44 @@
 #include <unistd.h>
 
 void turn(giocatore& g, tabellone t){
-    t.stampaTabellone();
-    cout <<endl<<"- - - - - - - - - - - - - - - - - -"<<endl;
-    cout << "Turno di NOME GIOCATORE"<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
-    cin.ignore();
-    cout<<"Lanci il dado"<<endl;
-    stampaDado();
-    int d=dice();
-    usleep(500000);
-    cout <<endl<< "Hai fatto "<<d<<endl;
-    
-    if (g.getPos()+d<=t.getDim()) {
-        g.setPos(g.getPos()+d);
+    if (g.fermo==true) {
+        t.stampaTabellone();
+        cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+        cout << "Turno di NOME GIOCATORE"<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cin.ignore();
+        cout <<endl<< "Stai fermo un turno "<<endl;
+        g.fermo=false;
     } else {
-        g.setPos(g.getPos()+(g.getPos()+d-t.getDim())-1);
-    }
-    
-    cout <<endl<< "Raggiungi la casella "<< g.getPos();
-    cin.ignore();
-    
-    int lastPos=g.getPos();
-    t.effetto(g);
-    
-    
-    while (g.getPos()!=lastPos){
-        lastPos=g.getPos();
+        g.fermo=false;
+        t.stampaTabellone();
+        cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
+        cout << "Turno di NOME GIOCATORE"<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cin.ignore();
+        cout<<"Lanci il dado"<<endl;
+        stampaDado();
+        int d=dice();
+        
+        // usleep(500000);
+        cout <<endl<< "Hai fatto "<<d<<endl;
+        
+        if (g.getPos()+d<=t.getDim()) {
+            g.setPos(g.getPos()+d);
+        } else {
+            g.setPos(g.getPos()+(g.getPos()+d-t.getDim()));
+        }
+        
+        cout <<endl<< "Raggiungi la casella "<< g.getPos();
+        cin.ignore();
+        
+        int lastPos=g.getPos();
         t.effetto(g);
+        
+        while (g.getPos()!=lastPos){
+            lastPos=g.getPos();
+            t.effetto(g);
+        }
+        
+        cin.ignore();
     }
-
-    
-    cin.ignore();
+   
 }
