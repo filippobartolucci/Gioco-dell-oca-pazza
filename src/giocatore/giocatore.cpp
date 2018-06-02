@@ -1,4 +1,4 @@
-//
+////
 //  Giocatore.cpp
 //  GOP
 //
@@ -22,10 +22,10 @@ giocatore::giocatore(char n[MAX_CHAR_NAME], int pos){
 void giocatore::initGiocatore(){
     
     int n_giocatori = 0;
-
+    
     cout << " - Inserire il numero di partecipanti (da 1 a 4): ";
     cin >> n_giocatori;
-        
+    
     while(cin.fail() || n_giocatori < 2 || n_giocatori > 4){
         cin.clear();
         cin.ignore(256, '\n');
@@ -75,19 +75,16 @@ void giocatore::decTurni(){
     this->numTurni--;
 }
 
-bool giocatore::saltaTurno(){
-    bool fermo = this->numTurni != 0;
-    if(fermo)
-        decTurni();
-    return fermo;
+void giocatore::saltaTurno(){
+    this->fermo=true;
 }
 
 /*
  + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
-   1 - codice ANSI per il colore ( scelto casualmente da setColor() )
-   2 - il nome del giocatore
-   3 - codice ANSI che resetta il colore di deafult tramite setDefault()
-*/
+ 1 - codice ANSI per il colore ( scelto casualmente da setColor() )
+ 2 - il nome del giocatore
+ 3 - codice ANSI che resetta il colore di deafult tramite setDefault()
+ */
 
 const char* giocatore::setColorPlayer(char n[40]){
     char* colorName = (char*)malloc(MAX_CHAR_NAME);
@@ -110,7 +107,6 @@ void giocatore::Dado::lanciaDado(){
     
     cout << "Hai totalizzato " << this->d << "!" << endl;
 }
-
 
 
     

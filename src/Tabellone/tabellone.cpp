@@ -14,7 +14,7 @@
 #define spostamento 5
 
 tabellone::tabellone(){
-    this->dim=(rand() % 41) + 58;
+    this->dim=(rand() % 41) + 38;
     this->caselle[0].setInizio();
     this->caselle[dim].setArrivo();
 }
@@ -26,8 +26,8 @@ void tabellone::stampaTabellone(){
     
     system("clear");
     
-    cout<<endl;
     
+    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl<<endl;
     for (int i=0;i<=9;i++){
         cout<<"| 0"<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1].getNomeTipo()<<endl;
     }
@@ -86,7 +86,7 @@ void tabellone::effetto(giocatore &g){
 
         case Fermo:
             cout<<endl<<"Casella Fermo - Perdi un turno"<<endl<<endl;
-
+            g.saltaTurno();
             break;
 
         case Domanda:
@@ -95,7 +95,7 @@ void tabellone::effetto(giocatore &g){
                 if (g.getPos()+spostamento<=this->dim) {
                     g.setPos(g.getPos()+spostamento);
                 } else {
-                    g.setPos(g.getPos()+(g.getPos()+spostamento-dim)-1);
+                    g.setPos(g.getPos()+(g.getPos()+spostamento-dim));
                 }
             }else{
                 if (g.getPos()-spostamento>=0) {
