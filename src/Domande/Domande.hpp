@@ -14,17 +14,14 @@
 #include <cstdlib>
 #include <iostream>
 
-using namespace std;
-
 struct domanda{
-    char dom[100];
+    char dom[150];
     char risposta[NUM_RISPOSTE][100];
     char giusta;
 };
 
-bool ask();
-
 domanda segliDomanda();
 
+bool ask();
 
 #endif /* Domande_hpp */
