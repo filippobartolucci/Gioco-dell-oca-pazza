@@ -9,14 +9,14 @@
 #include "Colors.h"
 
 
-
-giocatore::giocatore(char n[MAX_CHAR_NAME], int pos){
+giocatore::giocatore(char n[MAX_CHAR_NAME], int numColore){
     strcpy(this->nome, n);
-    setPos(pos);
+    setPos(0);
     setNumTurni(0);
+    setNumColore(numColore);
 }
 
-//Inizializzo il vettore di giocatori che partecipano
+//Inizializzo la lista di giocatori che partecipano
 
 
 void giocatore::initGiocatore(){
@@ -43,8 +43,8 @@ void giocatore::initGiocatore(){
     for (int i = 0; i < n_giocatori; i++){
         cout << " * Inserire il nome del giocatore " << i + 1 << ": ";
         cin >> n;
-        giocatori[i] = new giocatore(n, 0);
-        setColorPlayer(giocatori[i]->nome);
+        giocatori[i] = new giocatore(n, i);
+        
     }
     
     for (int i = 0; i < n_giocatori; i++){
@@ -54,6 +54,10 @@ void giocatore::initGiocatore(){
 }
 
 //Creo le funzioni per il giocatore
+
+char* giocatore::getNome(){
+    return this->nome;
+}
 
 void giocatore::setPos(int p){
     this->posizione = p;
@@ -75,9 +79,15 @@ void giocatore::decTurni(){
     this->numTurni--;
 }
 
-void giocatore::saltaTurno(){
-    this->fermo=true;
+bool giocatore::saltaTurno(){
+    fermo = this->numTurni != 0;
+    if(fermo)
+        decTurni();
+    return fermo;
+
+
 }
+
 
 /*
  + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
@@ -86,28 +96,14 @@ void giocatore::saltaTurno(){
  3 - codice ANSI che resetta il colore di deafult tramite setDefault()
  */
 
+void giocatore::setNumColore(int numColore){
+    this -> colore = static_cast<Color>(numColore);
+}
+
 const char* giocatore::setColorPlayer(char n[40]){
     char* colorName = (char*)malloc(MAX_CHAR_NAME);
-    strcpy(colorName, setColor());
+    strcpy(colorName, setColor(this -> colore));
     strcat(colorName, n);
     strcat(colorName, setDefault());
     return colorName;
 }
-
-
-void giocatore::Dado::lanciaDado(){
-    
-    srand((unsigned)time(NULL));
-    
-    this->d = rand() % 6 + 1;
-    
-    //lanco del secondo dado
-    
-    this->d += rand() % 6 + 1;
-    
-    cout << "Hai totalizzato " << this->d << "!" << endl;
-}
-
-
-    
-
