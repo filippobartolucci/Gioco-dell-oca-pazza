@@ -13,7 +13,8 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
-//#include "Colors.cpp"
+#include <cstdlib>
+#include "Colors.hpp"
 
 
 using namespace std;
@@ -26,6 +27,7 @@ private:
     char nome[MAX_CHAR_NAME];
     int numTurni;
     int posizione;
+    Color colore;
     
     typedef giocatore *lista_giocatori;
     
@@ -41,6 +43,8 @@ public:
     
     const char* setColorPlayer(char n[]);
     
+    bool fermo;
+    
     void setNumTurni(int n);
     
     int getnumTurni();
@@ -49,24 +53,12 @@ public:
     
     void decTurni();
     
+    char* getNome();
     
-    
-    
-    //Creo la classe Dado
-    
-    
-    class Dado{
-    public:
-        
-        int d;
-        
-        Dado();
-        
-        void lanciaDado();
-        
-    };
-    
+    void setNumColore(int numColore);
 
 };
+
+
 
 #endif
