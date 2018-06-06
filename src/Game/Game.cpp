@@ -16,7 +16,7 @@ void turn(giocatore& g, tabellone t){
     if (g.fermo==true) {
         t.stampaTabellone();
         cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
-        cout << "Turno di NOME GIOCATORE"<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cout << "Turno di "<<g.getNome<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
         cin.ignore();
         cout <<endl<< "Stai fermo un turno "<<endl;
         g.fermo=false;
@@ -24,7 +24,7 @@ void turn(giocatore& g, tabellone t){
         g.fermo=false;
         t.stampaTabellone();
         cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
-        cout << "Turno di NOME GIOCATORE"<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cout << "Turno di "<<g.getNome<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
         cin.ignore();
         cout<<"Lanci il dado"<<endl;
         stampaDado();
@@ -42,13 +42,16 @@ void turn(giocatore& g, tabellone t){
         cout <<endl<< "Raggiungi la casella "<< g.getPos();
         cin.ignore();
         
-        int lastPos=g.getPos();
+        //int lastPos=g.getPos();
+        
         t.effetto(g);
         
+        /*
         while (g.getPos()!=lastPos){
             lastPos=g.getPos();
             t.effetto(g);
         }
+        */
         
         cin.ignore();
     }
