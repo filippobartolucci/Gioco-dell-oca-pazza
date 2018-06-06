@@ -1,4 +1,4 @@
-//
+////
 //  Giocatore.cpp
 //  GOP
 //
@@ -6,7 +6,8 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 
 #include "giocatore.hpp"
-#include "Colors.hpp"
+#include "Colors.h"
+
 
 giocatore::giocatore(char n[MAX_CHAR_NAME], int numColore){
     strcpy(this->nome, n);
@@ -21,10 +22,10 @@ giocatore::giocatore(char n[MAX_CHAR_NAME], int numColore){
 void giocatore::initGiocatore(){
     
     int n_giocatori = 0;
-
+    
     cout << " - Inserire il numero di partecipanti (da 1 a 4): ";
     cin >> n_giocatori;
-        
+    
     while(cin.fail() || n_giocatori < 2 || n_giocatori > 4){
         cin.clear();
         cin.ignore(256, '\n');
@@ -83,15 +84,17 @@ bool giocatore::saltaTurno(){
     if(fermo)
         decTurni();
     return fermo;
+
+
 }
 
 
 /*
  + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
-   1 - codice ANSI per il colore ( scelto casualmente da setColor() )
-   2 - il nome del giocatore
-   3 - codice ANSI che resetta il colore di deafult tramite setDefault()
-*/
+ 1 - codice ANSI per il colore ( scelto casualmente da setColor() )
+ 2 - il nome del giocatore
+ 3 - codice ANSI che resetta il colore di deafult tramite setDefault()
+ */
 
 void giocatore::setNumColore(int numColore){
     this -> colore = static_cast<Color>(numColore);

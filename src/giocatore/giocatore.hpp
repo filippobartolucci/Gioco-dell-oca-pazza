@@ -29,11 +29,14 @@ private:
     int posizione;
     Color colore;
     
+    
     typedef giocatore *lista_giocatori;
     
 public:
     
     giocatore(char n[MAX_CHAR_NAME], int pos);
+    
+    bool fermo;
     
     void initGiocatore();
     
@@ -49,7 +52,7 @@ public:
     
     int getnumTurni();
     
-    bool saltaTurno();
+    void saltaTurno();
     
     void decTurni();
     
@@ -57,6 +60,8 @@ public:
     
     void setNumColore(int numColore);
 
+    
+    
 };
 
 
