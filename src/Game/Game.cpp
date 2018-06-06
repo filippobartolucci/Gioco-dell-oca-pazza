@@ -10,13 +10,14 @@
 #include "../Giocatore/giocatore.hpp"
 #include "../Tabellone/tabellone.hpp"
 #include "../Utils/utils.hpp"
+#include "../dado/Dado.hpp"
 #include <unistd.h>
 
-void turn(giocatore& g, tabellone t){
+void turn(giocatore& g, tabellone t, Dado d){
     if (g.fermo==true) {
         t.stampaTabellone();
         cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
-        cout << "Turno di "<<g.getNome<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cout << "Turno di "<<g.getNome()<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
         cin.ignore();
         cout <<endl<< "Stai fermo un turno "<<endl;
         g.fermo=false;
@@ -24,19 +25,21 @@ void turn(giocatore& g, tabellone t){
         g.fermo=false;
         t.stampaTabellone();
         cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl;
-        cout << "Turno di "<<g.getNome<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
+        cout << "Turno di "<<g.getNome()<<endl<<endl<<"Sei sulla casella "<<g.getPos()<<endl;
         cin.ignore();
         cout<<"Lanci il dado"<<endl;
-        stampaDado();
-        int d=dice();
         
+        //stampaDado();
+        //int d=dice();
         // usleep(500000);
-        cout <<endl<< "Hai fatto "<<d<<endl;
+        //cout <<endl<< "Hai fatto "<<d<<endl;
         
-        if (g.getPos()+d<=t.getDim()) {
-            g.setPos(g.getPos()+d);
+        d.mostraRisultato();
+        
+        if (g.getPos()+d.d<=t.getDim()) {
+            g.setPos(g.getPos()+d.d);
         } else {
-            g.setPos(g.getPos()+(g.getPos()+d-t.getDim()));
+            g.setPos(g.getPos()+(g.getPos()+d.d-t.getDim()));
         }
         
         cout <<endl<< "Raggiungi la casella "<< g.getPos();
@@ -47,13 +50,13 @@ void turn(giocatore& g, tabellone t){
         t.effetto(g);
         
         /*
-        while (g.getPos()!=lastPos){
-            lastPos=g.getPos();
-            t.effetto(g);
-        }
-        */
+         while (g.getPos()!=lastPos){
+         lastPos=g.getPos();
+         t.effetto(g);
+         }
+         */
         
         cin.ignore();
     }
-   
+    
 }
