@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "../Giocatore/giocatore.hpp"
 #include "../Tabellone/tabellone.hpp"
+#include "../dado/Dado.hpp"
 
-void turn(giocatore& g, tabellone t);
+void turn(giocatore& g, tabellone t, Dado d);
 #endif /* Game_hpp */
