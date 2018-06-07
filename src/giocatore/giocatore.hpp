@@ -22,6 +22,10 @@ using namespace std;
 
 class giocatore{
     
+    int n_giocatori;
+
+    static int giocatoriTotali;
+    
 private:
     
     char nome[MAX_CHAR_NAME];
@@ -29,16 +33,11 @@ private:
     int posizione;
     Color colore;
     
-    
     typedef giocatore *lista_giocatori;
     
 public:
     
     giocatore(char n[MAX_CHAR_NAME], int pos);
-    
-    bool fermo;
-    
-    void initGiocatore();
     
     void setPos(int p);
     
@@ -52,15 +51,13 @@ public:
     
     int getnumTurni();
     
-    void saltaTurno();
+    bool saltaTurno();
     
     void decTurni();
     
     char* getNome();
     
     void setNumColore(int numColore);
-
-    
     
 };
 
