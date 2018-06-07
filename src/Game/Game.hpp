@@ -14,5 +14,10 @@
 #include "../Tabellone/tabellone.hpp"
 #include "../dado/Dado.hpp"
 
+//Messaggio iniziale 
+void welcome();
+
 void turn(giocatore& g, tabellone t, Dado d);
+
+void credits();
 #endif /* Game_hpp */
