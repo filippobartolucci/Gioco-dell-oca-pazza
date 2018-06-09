@@ -1,4 +1,4 @@
-////
+//
 //  Giocatore.cpp
 //  GOP
 //
@@ -6,8 +6,7 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 
 #include "giocatore.hpp"
-#include "Colors.h"
-
+#include "Colors.hpp"
 
 giocatore::giocatore(char n[MAX_CHAR_NAME], int numColore){
     strcpy(this->nome, n);
@@ -16,6 +15,7 @@ giocatore::giocatore(char n[MAX_CHAR_NAME], int numColore){
     this->colore=setColor(numColore);
 }
 
+<<<<<<< HEAD
 //Inizializzo la lista di giocatori che partecipano
 
 void giocatore::initGiocatore(){
@@ -51,6 +51,8 @@ void giocatore::initGiocatore(){
         cout << giocatori[i]->posizione << endl;
     }
 }
+=======
+>>>>>>> fc2bbef1c6b804b7213a27c955e51d9b21d033a7
 
 //Creo le funzioni per il giocatore
 
@@ -78,6 +80,22 @@ void giocatore::decTurni(){
     this->numTurni--;
 }
 
+<<<<<<< HEAD
 
 
+=======
+bool giocatore::saltaTurno(){
+    fermo = this->numTurni != 0;
+    if(fermo)
+        decTurni();
+    return fermo;
+}
+
+/*
+ + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
+   1 - codice ANSI per il colore ( scelto casualmente da setColor() )
+   2 - il nome del giocatore
+   3 - codice ANSI che resetta il colore di deafult tramite setDefault()
+*/
+>>>>>>> fc2bbef1c6b804b7213a27c955e51d9b21d033a7
 
