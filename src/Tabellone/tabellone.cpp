@@ -8,15 +8,18 @@
 
 #include "tabellone.hpp"
 #include <iostream>
-#include "../Casella/casella.hpp"
-#include "../Giocatore/giocatore.hpp"
-#include "../Domande/Domande.hpp"
+#include "casella.hpp"
+#include "giocatore.hpp"
+#include "Domande.hpp"
+#include "Mazzo.h"
+
 #define spostamento 5
 
 tabellone::tabellone(){
+ //   srand((unsigned)time(NULL));
     this->dim=(rand() % 41) + 38;
-    this->caselle[0].setInizio();
-    this->caselle[dim].setArrivo();
+    this->caselle[0]->setInizio();
+    this->caselle[dim]->setArrivo();
 }
 
 void tabellone::stampaTabellone(){
@@ -29,24 +32,25 @@ void tabellone::stampaTabellone(){
     
     cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl<<endl;
     for (int i=0;i<=9;i++){
-        cout<<"| 0"<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1].getNomeTipo()<<endl;
+        cout<<"| 0"<<i<<" - "<< this->caselle[i]->getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1]->getNomeTipo()<<endl;
     }
     
     for (int i=10;i<=n;i++){
         if (i+n+1<=this->getDim()){
-            cout<<"| "<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1].getNomeTipo()<<endl;
+            cout<<"| "<<i<<" - "<< this->caselle[i]->getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1]->getNomeTipo()<<endl;
         }else{
-            cout<<"| "<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<" ----------------------"<<endl;
+            cout<<"| "<<i<<" - "<< this->caselle[i]->getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<endl;
         }
     }
+    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl<<endl;
 }
 
 int tabellone::getDim(){
     return this->dim;
 }
 
-void tabellone::effetto(giocatore &g){
-    enum tipo tipoCasella=this->caselle[g.getPos()].getTipo();
+void tabellone::effetto(giocatore *g){
+    enum tipo tipoCasella=this->caselle[g->getPos()]->getTipo();
 
 
     switch (tipoCasella) {
@@ -61,63 +65,63 @@ void tabellone::effetto(giocatore &g){
         case Avanti:
             cout<<endl<<"Casella Avanti - Vai Avanti di 5"<<endl<<endl;
             
-            if (g.getPos()+spostamento<=this->dim) {
-                g.setPos(g.getPos()+spostamento);
+            if (g->getPos()+spostamento<=this->dim) {
+                g->setPos(g->getPos()+spostamento);
             } else {
-                g.setPos(g.getPos()+(g.getPos()+spostamento-dim)-1);
+                g->setPos(g->getPos()+(g->getPos()+spostamento-dim)-1);
             }
-            cout << "Raggiungi la casella "<< g.getPos();
+            cout << "Raggiungi la casella "<< g->getPos();
             break;
 
         case Indietro:
             cout<<endl<<"Casella Indietro - Torni indietro di 5"<<endl<<endl;
-            if (g.getPos()-spostamento>=0) {
-                g.setPos(g.getPos()-spostamento);
+            if (g->getPos()-spostamento>=0) {
+                g->setPos(g->getPos()-spostamento);
             } else {
-                g.setPos(0);
+                g->setPos(0);
             }
-            cout << "Raggiungi la casella "<< g.getPos();
+            cout << "Raggiungi la casella "<< g->getPos();
             break;
 
         case Pesca:
             cout<<endl<<"Casella Pesca - Peschi una carta dal mazzo"<<endl<<endl;
-
+            
             break;
 
         case Fermo:
             cout<<endl<<"Casella Fermo - Perdi un turno"<<endl<<endl;
-            g.fermo=true;
+            g->fermo=true;
             break;
 
         case Domanda:
             cout<<endl<<"Casella Domanda - Preparati a rispondere"<<endl<<endl;
             if (ask()==true){
-                if (g.getPos()+spostamento<=this->dim) {
-                    g.setPos(g.getPos()+spostamento);
+                if (g->getPos()+spostamento<=this->dim) {
+                    g->setPos(g->getPos()+spostamento);
                 } else {
-                    g.setPos(g.getPos()+(g.getPos()+spostamento-dim));
+                    g->setPos(g->getPos()+(g->getPos()+spostamento-dim));
                 }
             }else{
-                if (g.getPos()-spostamento>=0) {
-                    g.setPos(g.getPos()-spostamento);
+                if (g->getPos()-spostamento>=0) {
+                    g->setPos(g->getPos()-spostamento);
                 } else {
-                    g.setPos(0);
+                    g->setPos(0);
                 }
             }
-            cout << "Raggiungi la casella "<< g.getPos();
+            cout << "Raggiungi la casella "<< g->getPos();
             break;
 
         case Arrivo:
             cout <<endl<<" -Arrivo- " <<endl<<endl ;
             break;
 
-
     }
     
-   
 }
 
-casella tabellone::getCasella(int n){
+casella* tabellone::getCasella(int n){
     return this->caselle[n];
 }
+
+
 
