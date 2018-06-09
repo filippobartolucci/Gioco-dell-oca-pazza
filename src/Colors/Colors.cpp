@@ -6,9 +6,9 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-
+#include "Colors.hpp"
 #include <stdlib.h>
-#include "Colors.h"
+#include <iostream>
 
 /*
  Funzioni per impostare i colori
@@ -34,6 +34,12 @@ const char* setDefault(){
     return DEFAULT;
 }
 
+void colorize(char* dest, char* src, Color c){
+    strcpy(dest, setColor(c));
+    strcat(dest, src);
+    strcat(dest, setDefault());
+}
+
 
 /*
  Funzione per impostare il colore ai nomi dei giocatori
@@ -41,9 +47,35 @@ const char* setDefault(){
  */
 
 
-const char* setColor(){
+const char* setColor(Color color){
     
-    int random = rand() % 4 + 1;
+    switch (color) {
+            
+        case Color::red:
+            return setRed();
+            break;
+            
+        case Color::blue:
+            return setBlue();
+            break;
+            
+        case Color::yellow:
+            return setYellow();
+            break;
+            
+        case Color::green:
+            return setGreen();
+            break;
+            
+        default:
+            return setDefault();
+            
+    }
+    
+ /*
+    srand((unsigned)time(NULL));
+    
+    int random = rand() % 4;
     
     if(random == 1){
         return setRed();
@@ -54,5 +86,6 @@ const char* setColor(){
     } else {
         return setGreen();
     }
+*/
 }
 
