@@ -14,7 +14,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
-#include "Colors.hpp"
+#include "../Colors/Colors.h"
 
 
 using namespace std;
@@ -27,39 +27,38 @@ private:
     char nome[MAX_CHAR_NAME];
     int numTurni;
     int posizione;
-    Color colore;
+    string colore;
     
     
     typedef giocatore *lista_giocatori;
     
 public:
     
+    // Costruttore per classe giocatore
     giocatore(char n[MAX_CHAR_NAME], int pos);
     
+    // Booleano per il controllo del turno
     bool fermo;
     
     void initGiocatore();
     
+    // Setta la posizione del giocatore
     void setPos(int p);
     
+    // Ritorna la pozione del giocatore
     int getPos();
     
-    const char* setColorPlayer(char n[]);
-    
-    bool fermo;
     
     void setNumTurni(int n);
     
     int getnumTurni();
     
-    void saltaTurno();
-    
     void decTurni();
     
-    char* getNome();
+    string getNome();
     
-    void setNumColore(int numColore);
-
+    
+    
     
     
 };
@@ -67,3 +66,4 @@ public:
 
 
 #endif
+
