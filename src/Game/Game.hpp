@@ -12,6 +12,7 @@
 #define MAX_GIOCATORI 4
 
 #include <stdio.h>
+
 #include "giocatore.hpp"
 #include "tabellone.hpp"
 #include "Dado.hpp"
@@ -52,3 +53,16 @@ public:
 
 
 #endif /* game_hpp */
+=======
+#include "../Giocatore/giocatore.hpp"
+#include "../Tabellone/tabellone.hpp"
+#include "../dado/Dado.hpp"
+
+//Messaggio iniziale 
+void welcome();
+
+void turn(giocatore& g, tabellone t, Dado d);
+
+void credits();
+#endif /* Game_hpp */
+

@@ -27,7 +27,7 @@ void tabellone::stampaTabellone(){
     system("clear");
     
     
-    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - -"<<endl<<endl;
+    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl<<endl;
     for (int i=0;i<=9;i++){
         cout<<"| 0"<<i<<" - "<< this->caselle[i].getNomeTipo()<<"\t"<<"\t"<<"\t"<<"\t"<<"\t"<<"| "<<i+n+1<<" - "<<this->caselle[i+n+1].getNomeTipo()<<endl;
     }
@@ -86,7 +86,7 @@ void tabellone::effetto(giocatore &g){
 
         case Fermo:
             cout<<endl<<"Casella Fermo - Perdi un turno"<<endl<<endl;
-            g.saltaTurno();
+            g.fermo=true;
             break;
 
         case Domanda:

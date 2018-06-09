@@ -11,7 +11,7 @@
 #include <iostream>
 
 /*
- Funzioni per impostare i colori
+ Funzioni per impostare i colori 
  */
 
 const char* setRed(){
@@ -42,9 +42,9 @@ void colorize(char* dest, char* src, Color c){
 
 
 /*
- Funzione per impostare il colore ai nomi dei giocatori
- in modo casuale tramite rand()
+ Funzione per che ritorna un colore in base al numero del giocatore
  */
+
 
 
 const char* setColor(Color color){
@@ -76,16 +76,20 @@ const char* setColor(Color color){
     srand((unsigned)time(NULL));
     
     int random = rand() % 4;
+=======
+const char* setColor(int n){
+
     
-    if(random == 1){
+    if(n == 1){
         return setRed();
-    } else if(random == 2){
+    } else if(n == 2){
         return setYellow();
-    } else if(random == 3){
+    } else if(n == 3){
         return setBlue();
     } else {
         return setGreen();
     }
 */
 }
+
 
