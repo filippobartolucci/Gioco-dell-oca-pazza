@@ -32,6 +32,7 @@ private:
     int numTurni;
     int posizione;
     Color colore;
+    bool rilancia;
     
     typedef giocatore *lista_giocatori;
     
@@ -53,11 +54,14 @@ public:
     
     bool saltaTurno();
     
-    void decTurni();
+    void incTurni();
     
     char* getNome();
     
     void setNumColore(int numColore);
+    
+    void setRilancia(bool rilancia);
+    bool getRilancia();
     
 };
 
