@@ -38,16 +38,24 @@ int giocatore::getnumTurni(){
     return this->numTurni;
 }
 
-void giocatore::decTurni(){
-    this->numTurni--;
+void giocatore::incTurni(){
+    this->numTurni++;
 }
 
 bool giocatore::saltaTurno(){
     fermo = this->numTurni != 0;
     if(fermo)
-        decTurni();
+        incTurni();
     return fermo;
 }
+
+void giocatore::setRilancia(bool rilancia){
+    this->rilancia = rilancia;
+}
+
+bool giocatore::getRilancia(){
+    return this->rilancia;
+} 
 
 /*
  + setColorPlayer() inserisce il colore all'interno della stringa dividendola in 3 parti:
