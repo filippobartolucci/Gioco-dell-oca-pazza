@@ -24,7 +24,7 @@ domanda domande[] = {
         "b - The Wolf Of Wall Street",
         "c - Il grande Gatsby",
         "d - Revenant"}, 'd'},
-    
+ 
     {"Quale tra i seguenti non è un film di Quentin Tarantino?",{
         "a - Le Iene",
         "b - The Hateful 8",
@@ -102,6 +102,7 @@ domanda domande[] = {
         "b - Il sapore del successo",
         "c - Il lato positivo",
         "d - American Sniper"}, 'a'}
+  
 };
 
 
@@ -109,7 +110,7 @@ int num_domande = sizeof(domande)/sizeof(*domande);
 
 
 domanda scegliDomanda(){
-    srand((unsigned)time(NULL));
+//    srand((unsigned)time(NULL));
     int random = rand()%num_domande + 1;
     return domande[random];
 }
@@ -126,16 +127,24 @@ bool ask(){
     for(int i = 0; i < NUM_RISPOSTE; i++){
         cout << d.risposta[i] << endl;
     }
-    
     cout << endl;
+    
     cin >> risposta;
+    
+    while (cin.fail() || risposta < ((char)97) || risposta > ((char)100)){
+        cout << " - Input non valido - " << endl;
+        cin >> risposta;
+    }
+    
     
     bool isTrue = false;
     if(risposta == d.giusta){
         cout << "La risposta è corretta!" << endl << endl;
         isTrue = true;
+        cin.get();
     } else {
         cout << "Risposta errata!" << endl << endl;
+        cin.get();
     }
     return isTrue;
 }
