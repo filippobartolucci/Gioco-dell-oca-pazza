@@ -1,4 +1,4 @@
-//
+////
 //  Colors.cpp
 //  Gioco dell'oca pazza
 //
@@ -6,9 +6,9 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-
+#include "Colors.hpp"
 #include <stdlib.h>
-#include "Colors.h"
+#include <iostream>
 
 /*
  Funzioni per impostare i colori
@@ -30,29 +30,32 @@ const char* setGreen(){
     return GREEN;
 }
 
+const char* setMagenta(){
+    return MAGENTA;
+}
+
+const char* setLightBlue(){
+    return LIGHTBLUE;
+}
+
 const char* setDefault(){
     return DEFAULT;
 }
 
 
 /*
- Funzione per impostare il colore ai nomi dei giocatori
- in modo casuale tramite rand()
+ Funzione per che ritorna un colore in base al numero del giocatore
  */
 
-
-const char* setColor(){
+const char* setColor(int n){
     
-    int random = rand() % 4 + 1;
-    
-    if(random == 1){
+    if(n == 0){
         return setRed();
-    } else if(random == 2){
+    } else if(n == 1){
         return setYellow();
-    } else if(random == 3){
+    } else if(n == 2){
         return setBlue();
     } else {
         return setGreen();
     }
 }
-
