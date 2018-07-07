@@ -80,6 +80,8 @@ void Game::initGiocatore(){
         giocatori[i] = new giocatore(n, i);
     }
     cout << endl;
+    
+    cin.ignore();
 }
 
 
@@ -115,7 +117,7 @@ void Game::mostraTurno(){
         else
             this->giocatori[giocatoreCorrente]->setPos(this->tabel->getDim() - (this->giocatori[giocatoreCorrente]->getPos()+this->dado->d - this->tabel->getDim()));
         
-        cout << endl << "Raggiungi la casella " << this->giocatori[giocatoreCorrente]->getPos() << endl;
+        cout << endl << "Raggiungi la casella " << this->giocatori[giocatoreCorrente]->getPos() ;
         cin.get();
         
         this->tabel->effetto(this->giocatori, giocatoreCorrente, n_giocatori, m);
