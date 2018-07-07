@@ -5,10 +5,10 @@
  *      Author: polis
  */
 
-#include "Fortuna.hpp"
+#include "../Effetti Carte/Fortuna.hpp"
 #include <cstring>
 #include <iostream>
-#include "Dado.hpp"
+#include "../Dado/Dado.hpp"
 #include <unistd.h>
 
 Fortuna::Fortuna() : Carta(" Carta Fortuna! "){

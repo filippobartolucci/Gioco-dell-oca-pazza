@@ -5,10 +5,10 @@
  *      Author: polis
  */
 
-#include "RilanciaDado.hpp"
+#include "../Effetti Carte/RilanciaDado.hpp"
 #include <cstring>
 #include <iostream>
-#include "Dado.hpp"
+#include "../Dado/Dado.hpp"
 
 Rilancia_Dado::Rilancia_Dado() : Carta("Rilancia il dado"){
 }

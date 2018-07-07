@@ -8,7 +8,7 @@
 #ifndef GIOCO_DELL_OCA_PAZZA_SRC_MAZZO_MAZZO_H_
 #define GIOCO_DELL_OCA_PAZZA_SRC_MAZZO_MAZZO_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 #define DEFAULT_NUM_CARTE 40
 

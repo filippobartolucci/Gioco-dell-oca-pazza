@@ -6,7 +6,7 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#include "Colors.hpp"
+#include "../Colors/Colors.hpp"
 #include <stdlib.h>
 #include <iostream>
 

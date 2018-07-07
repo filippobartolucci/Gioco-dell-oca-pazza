@@ -5,7 +5,7 @@
  *      Author: polis
  */
 
-#include "Scambia.hpp"
+#include "../Effetti Carte/Scambia.hpp"
 #include <cstring>
 #include <iostream>
 

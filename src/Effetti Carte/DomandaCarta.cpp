@@ -5,9 +5,9 @@
  *      Author: polis
  */
 
-#include "DomandaCarta.hpp"
+#include "../Effetti Carte/DomandaCarta.hpp"
 
-#include "Domande.hpp"
+#include "../Domande/Domande.hpp"
 
 #include <cstring>
 #include <iostream>
@@ -24,6 +24,7 @@ void DomandaCarta::effetto_carta(giocatore* g[], int giocatoreCorrente, int n_gi
     if(!risposta_giusta)
     
         g[giocatoreCorrente]->saltaTurno();
+        cout <<"Perdi un turno"
     
     else {
         

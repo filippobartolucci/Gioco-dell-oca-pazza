@@ -5,7 +5,7 @@
  *      Author: polis
  */
 
-#include "Fermounturno.hpp"
+#include "../Effetti Carte/Fermounturno.hpp"
 
 
 Fermo_un_turno::Fermo_un_turno() : Carta("Fermo per un turno") {

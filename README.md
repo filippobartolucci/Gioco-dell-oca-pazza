@@ -21,6 +21,7 @@ Progetto per il corso di Programmazione UniBo dell'anno 2017/2018
     * Rilancia dado
     * Torna all'inizio
     * Scambia posizione
+    
 
 - Domande a tema cinema e serie TV    
 
@@ -38,6 +39,19 @@ Progetto per il corso di Programmazione UniBo dell'anno 2017/2018
 - Carta Rilancia: rilanci il dado
 - Carta Torna all'inizio: torni all'inizio del tabellone
 - Carta Scambia posizione: scambia la tua posizione con quella del giocatore più vicino al traguardo
+ 
+# Compilare il programma 
+- Eseguire da terminale il comando <b>cmake</b> nella cartella src del progetto
+- Per creare l'eseguibile eseguire il comando <b>make</b>, rimanendo nella stessa directory
+- Infine eseguire il gioco con il seguente comando:
+##### Unix
+```
+./GOP
+```
+##### Windows
+```
+GOP
+```
  
 # Come giocare 
 Premi invio per andare avanti e segui le istruzioni a schermo 

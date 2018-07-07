@@ -11,10 +11,10 @@
 
 #include <stdio.h>
 
-#include "giocatore.hpp"
-#include "tabellone.hpp"
-#include "Dado.hpp"
-#include "Mazzo.hpp"
+#include "../giocatore/giocatore.hpp"
+#include "../Tabellone/tabellone.hpp"
+#include "../Dado/Dado.hpp"
+#include "../Mazzo/Mazzo.hpp"
 
 #define MAX_GIOCATORI 4
 

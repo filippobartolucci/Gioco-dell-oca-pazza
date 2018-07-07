@@ -3,9 +3,9 @@
 
 #include <stdio.h>
 
-#include "casella.hpp"
-#include "giocatore.hpp"
-#include "Mazzo.hpp"
+#include "../Casella/casella.hpp"
+#include "../giocatore/giocatore.hpp"
+#include "../Mazzo/Mazzo.hpp"
 
 #define MAX_DIM 100
 using namespace std;

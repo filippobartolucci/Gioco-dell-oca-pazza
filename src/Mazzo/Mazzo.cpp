@@ -5,14 +5,14 @@
  *      Author: polis
  */
 
-#include "Mazzo.hpp"
-#include "Carta.hpp"
-#include "RilanciaDado.hpp"
-#include "Scambia.hpp"
-#include "Fortuna.hpp"
-#include "DomandaCarta.hpp"
-#include "Fermounturno.hpp"
-#include "TornaInizio.hpp"
+#include "../Mazzo/Mazzo.hpp"
+#include "../Carta/Carta.hpp"
+#include "../Effetti Carte/RilanciaDado.hpp"
+#include "../Effetti Carte/Scambia.hpp"
+#include "../Effetti Carte/Fortuna.hpp"
+#include "../Effetti Carte/DomandaCarta.hpp"
+#include "../Effetti Carte/Fermounturno.hpp"
+#include "../Effetti Carte/TornaInizio.hpp"
 
 Carta* Mazzo::crea_elemento(){
 	int tipo_carta = (rand()%TIPI_CARTE);

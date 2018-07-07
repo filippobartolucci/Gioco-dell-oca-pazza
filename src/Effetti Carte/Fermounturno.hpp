@@ -8,7 +8,7 @@
 #ifndef GIOCO_DELL_OCA_PAZZA_SRC_CARTA_FERMOUNTURNO_H_
 #define GIOCO_DELL_OCA_PAZZA_SRC_CARTA_FERMOUNTURNO_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 
 class Fermo_un_turno : public Carta  {
