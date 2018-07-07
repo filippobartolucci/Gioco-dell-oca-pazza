@@ -10,12 +10,13 @@
 #define Domande_hpp
 
 #define NUM_RISPOSTE 4
+#define NUM_DOMANDE 19
 #include <stdio.h>
 #include <cstdlib>
 #include <iostream>
 
 struct domanda{
-    char dom[150];
+    char dom[200];
     char risposta[NUM_RISPOSTE][100];
     char giusta;
 };

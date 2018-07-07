@@ -11,14 +11,14 @@
 
 using namespace std;
 
-domanda domande[] = {
-    
+domanda domande[NUM_DOMANDE] = {
+    /*
     {"In quale film Nicolas Cage ruba 50 auto in una notte?", {
         "a - Fuori di testa",
         "b - Con Air",
         "c - Fuori in 60 secondi",
         "d - Drive Angry"}, 'c'},
-    
+    */
     {"Con quale film Leonardo Di Caprio ha vinto l'Oscar?",{
         "a - Titanic",
         "b - The Wolf Of Wall Street",
@@ -101,17 +101,43 @@ domanda domande[] = {
         "a - Limitless",
         "b - Il sapore del successo",
         "c - Il lato positivo",
-        "d - American Sniper"}, 'a'}
+        "d - American Sniper"}, 'a'},
+    
+    {"Nel film \"Pirati dei Caraibi - La maledizione del forziere fantasma\", quando Elizabeth guarda la magica bussola, cosa o chi punta?",{
+        "a - Il nord",
+        "b - Jack Sparrow",
+        "c - Il forziere fantasma",
+        "d - La Luna"}, 'b'},
+    
+    {"Da chi è interpetata la parte di Jack Torrance in \"Shining\" diretto da Stanley Kubrick?",{
+        "a - Danny Lloyd",
+        "b - Joe Turkel",
+        "c - Jack Nicholson",
+        "d - Philip Stone",}, 'c'},
+    
+    {"In \"2001 - Odisse Nello Spazio\", quale oggetto misterioso compare spesso nelle scene?",{
+        "a - Un masso enorme",
+        "b - Un alieno",
+        "c - Un monolita",
+        "d - Un'astronave",}, 'c'},
+    
+    {"In \"Toro Scatenato\" di Martin Scorsese, chi interpreta Robert De Niro?",{
+        "a - Jake LaMotta",
+        "b - Sugar Ray Robinson",
+        "c - Joey LaMotta",
+        "d - Tommy Como",}, 'a'},
+    
+    {"Dov'è ambientato \"Il talento di Mr.Ripley\", con Jude Law e Matt Damon?",{
+        "a - Napoli",
+        "b - Venezia",
+        "c - Ischia",
+        "d - Sorrento",}, 'c'}
   
 };
 
 
-int num_domande = sizeof(domande)/sizeof(*domande);
-
-
 domanda scegliDomanda(){
-//    srand((unsigned)time(NULL));
-    int random = rand()%num_domande + 1;
+    int random = rand()%NUM_DOMANDE + 1;
     return domande[random];
 }
 
@@ -132,7 +158,8 @@ bool ask(){
     cin >> risposta;
     
     while (cin.fail() || risposta < ((char)97) || risposta > ((char)100)){
-        cout << " - Input non valido - " << endl;
+        cout << " - Input non valido - " << endl << endl;
+        cout << " - Inserire un carattere minuscolo tra 'a' e 'd' - " << endl;
         cin >> risposta;
     }
     
@@ -141,10 +168,10 @@ bool ask(){
     if(risposta == d.giusta){
         cout << "La risposta è corretta!" << endl << endl;
         isTrue = true;
-        cin.get();
+        cin.ignore();
     } else {
         cout << "Risposta errata!" << endl << endl;
-        cin.get();
+        cin.ignore();
     }
     return isTrue;
 }
