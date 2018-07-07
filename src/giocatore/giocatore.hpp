@@ -9,35 +9,28 @@
 #ifndef giocatore_hpp
 #define giocatore_hpp
 
-#define MAX_CHAR_NAME 40
 #include <string>
 #include <iostream>
 #include <stdlib.h>
 #include <cstdlib>
+
 #include "Colors.hpp"
 
+#define MAX_CHAR_NAME 40
 
 using namespace std;
 
 
 class giocatore{
     
-    int n_giocatori;
+  private:
 
-    static int giocatoriTotali;
-    
-private:
-    
     char nome[MAX_CHAR_NAME];
     int numTurni;
     int posizione;
-    Color colore;
-    bool rilancia;
+    string colore;
     
-    typedef giocatore *lista_giocatori;
-    
-public:
-    
+  public:
     giocatore(char n[MAX_CHAR_NAME], int pos);
     
     void setPos(int p);
@@ -47,24 +40,12 @@ public:
     const char* setColorPlayer(char n[]);
     
     bool fermo;
+
+    void saltaTurno();
+
+    string getNome();
     
-    void setNumTurni(int n);
-    
-    int getnumTurni();
-    
-    bool saltaTurno();
-    
-    void incTurni();
-    
-    char* getNome();
-    
-    void setNumColore(int numColore);
-    
-    void setRilancia(bool rilancia);
-    bool getRilancia();
-    
+    string getColore();
 };
-
-
 
 #endif
