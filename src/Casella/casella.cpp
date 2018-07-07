@@ -1,8 +1,10 @@
 //  casella.cpp
 
-#include "casella.hpp"
 #include <cstdlib>
 #include <iostream>
+
+#include "casella.hpp"
+#include "Colors.hpp"
 
 #define spostamento 5
 
@@ -11,9 +13,9 @@ casella::casella(){
     switch (n) {
             
         case (4):
-            this->tipo=Avanti;
+		this->tipo=Avanti;
             break;
-        
+            
         case (5):
             this->tipo=Indietro;
             break;
@@ -35,7 +37,7 @@ casella::casella(){
             this->tipo=Vuota;
             break;
     }
-
+    
 }
 
 void casella::setInizio(){
@@ -51,38 +53,71 @@ tipo casella::getTipo(){
     return this->tipo;
 }
 
-string casella::getNomeTipo(){
-    switch (this->tipo) {
+string casella::getNome(enum tipo tipo){
+    switch(this->tipo){
+            
         case Inizio:
-            return "\x1b[32mInizio\x1b[0m";
+            return "Inizio";
             break;
-            
         case Vuota:
-            return "Vuota   ";
+            return "Vuota";
             break;
-            
         case Avanti:
-            return "\x1b[33mAvanti\x1b[0m  ";
+            return "Avanti";
             break;
-            
         case Indietro:
-            return "\x1b[34mIndietro\x1b[0m";
+            return "Indietro";
             break;
-            
         case Pesca:
-            return "\x1b[35mPesca\x1b[0m   ";
+            return "Pesca   ";
             break;
-            
         case Fermo:
-            return "\x1b[31mFermo\x1b[0m   ";
+            return "Fermo   ";
             break;
-            
         case Domanda:
-            return "\x1b[36mDomanda\x1b[0m ";
+            return "Domanda ";
             break;
-            
         case Arrivo:
-            return "\x1b[32mArrivo\x1b[0m";
+            return "Arrivo";
             break;
     }
 }
+
+
+string casella::getNomeTipo(){
+    switch (this->tipo) {
+        case Inizio:
+            return (setGreen() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Vuota:
+            return getNome(this->tipo);
+            break;
+            
+        case Avanti:
+            return (setYellow() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Indietro:
+            return (setBlue() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Pesca:
+            return (setMagenta() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Fermo:
+            return (setRed() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Domanda:
+            return (setLightBlue() + getNome(this->tipo) + setDefault());
+            break;
+            
+        case Arrivo:
+            return (setGreen() + getNome(this->tipo) + setDefault());
+            break;
+    }
+    return "";
+}
+

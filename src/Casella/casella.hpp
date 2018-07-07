@@ -23,7 +23,7 @@ enum tipo {
 
 class casella {
 private:
-    tipo tipo;
+    enum tipo tipo;
     
 public:
     
@@ -42,6 +42,7 @@ public:
     
     enum tipo getTipo();
     string getNomeTipo();
+    string getNome(enum tipo tipo);
 };
 
 
