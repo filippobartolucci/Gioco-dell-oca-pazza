@@ -1,5 +1,6 @@
 # Gioco dell'oca pazza
-Gioco dell'oca versione digitale per il progetto del corso di Programmazione UniBo 2017/2018
+Gioco dell'oca versione digitale per il progetto del corso di Programmazione UniBo 2017/2018.
+Per lo sviluppo del progetto ci siamo serviti della piattaforma <b>GitHub</b> 
 
 # Interfaccia
 Interfaccia testuale, si gioca interamente da terminale 
@@ -27,6 +28,9 @@ Interfaccia testuale, si gioca interamente da terminale
     * Arrivo
     
 # Implementazione 
+Il gioco è eseguibili interamente da terminale. Vengono utilizzati i codici delle tabelle colori ANSI per colore l'output su terminale.
+
+
 <b> Giocatori: </b>
 
 
@@ -50,4 +54,10 @@ Interfaccia testuale, si gioca interamente da terminale
 <b> Mazzo e carte: </b>
 
 <b> Domande: </b>
+
+
+# Sviluppato da 
+ * Francesco Cerio
+ * Francesco Polisena
+ * Filippo Bartolucci
 
