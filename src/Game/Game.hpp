@@ -1,23 +1,53 @@
 //
-//  Game.hpp
-//  G.O.P.
+//  game.hpp
+//  Gioco dell'oca pazza
 //
-//  Created by Filippo Bartolucci on 16/05/18.
-//  Copyright © 2018 Filippo Bartolucci. All rights reserved.
+//  Created by Francesco Cerio on 06/06/18.
+//  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#ifndef Game_hpp
-#define Game_hpp
+#ifndef game_hpp
+#define game_hpp
 
 #include <stdio.h>
-#include "../Giocatore/giocatore.hpp"
-#include "../Tabellone/tabellone.hpp"
-#include "../dado/Dado.hpp"
 
-//Messaggio iniziale 
-void welcome();
+#include "giocatore.hpp"
+#include "tabellone.hpp"
+#include "Dado.hpp"
+#include "Mazzo.hpp"
 
-void turn(giocatore& g, tabellone t, Dado d);
+#define MAX_GIOCATORI 4
 
-void credits();
-#endif /* Game_hpp */
+class Game{
+
+    int giocatoreCorrente = 0;
+    int n_giocatori = 0;
+    giocatore* giocatori[MAX_GIOCATORI];
+    bool isFinished = false;
+    
+    void gameLoop();
+    
+    tabellone* tabel;
+    Mazzo* m;
+    Dado* dado = new Dado();
+    
+public:
+    
+    Game();
+    void messaggioIniziale();
+    void initGiocatore();
+    int giocatoreSuccessivo();
+    
+    void initTabellone();
+    
+    void mostraTurno();
+    
+    void finish(giocatore *g);
+    
+    void end();
+};
+
+
+
+
+#endif /* game_hpp */

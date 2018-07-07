@@ -6,22 +6,17 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#include "Game.hpp"
-#include "giocatore.hpp"
-#include "Dado.hpp"
-#include "Domande.hpp"
-#include "casella.hpp"
-#include "tabellone.hpp"
-#include "Mazzo.hpp"
+#include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "Game.hpp"
+#include "casella.hpp"
+#include "Domande.hpp"
+#include "Carta.hpp"
 using namespace std;
 
 Game::Game(){
-    
-    //Setto il tempo generale a 0
-//    srand((unsigned)time(NULL));
     
     //Pulisco la schermata
     system("clear");
@@ -43,6 +38,7 @@ Game::Game(){
     //Termina se isFinished = true
     while(!isFinished){
         gameLoop();
+        giocatoreCorrente = giocatoreSuccessivo();
     }
     
     end();
@@ -91,14 +87,14 @@ void Game::initGiocatore(){
 void Game::gameLoop(){
     tabel->stampaTabellone(this->giocatori, this->n_giocatori);
     mostraTurno();
-    giocatoreCorrente = giocatoreSuccessivo();
+    
 }
 
 
 //Funzione che mostra il turno del giocatore corrente
 void Game::mostraTurno(){
     
-    cout << endl << "- - - - - - - - - - - - - - - - - - - - - - - - - -" << endl << endl;
+    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl<<endl;
     cout << "E' il turno di: " << this->giocatori[giocatoreCorrente]->getNome() << endl;
     cout << "Sei sulla casella " << this->giocatori[giocatoreCorrente]->getPos() << endl << endl;
     
@@ -117,53 +113,32 @@ void Game::mostraTurno(){
         if (this->giocatori[giocatoreCorrente]->getPos()+this->dado->d <= this->tabel->getDim())
             this->giocatori[giocatoreCorrente]->setPos(this->giocatori[giocatoreCorrente]->getPos()+this->dado->d);
         else
-            this->giocatori[giocatoreCorrente]->setPos(this->giocatori[giocatoreCorrente]->getPos()+(this->giocatori[giocatoreCorrente]->getPos()+this->dado->d - this->tabel->getDim()));
+            this->giocatori[giocatoreCorrente]->setPos(this->tabel->getDim() - (this->giocatori[giocatoreCorrente]->getPos()+this->dado->d - this->tabel->getDim()));
         
-        cout << endl << "Raggiungi la casella " << this->giocatori[giocatoreCorrente]->getPos();
-        cin.ignore();
+        cout << endl << "Raggiungi la casella " << this->giocatori[giocatoreCorrente]->getPos() << endl;
+        cin.get();
         
-        this->tabel->effetto(this->giocatori[giocatoreCorrente], m);
+        this->tabel->effetto(this->giocatori, giocatoreCorrente, n_giocatori, m);
         cin.get();
     }
-    if (giocatori[giocatoreCorrente]->getPos() == tabel->getDim()){
+    if (giocatori[giocatoreCorrente]->getPos() >= tabel->getDim()){
         finish(giocatori[giocatoreCorrente]);
     }
 }
-/*
-void Game::muoviGiocatore(){
-    int localPos;
-    giocatori[giocatoreCorrente]->setPos(dado->d);
-    localPos = this->giocatori[giocatoreCorrente]->getPos();
-    
-    if(localPos == this->tabel->getDim()){
-        finish();
-    }
-//    this->tabel->effetto(this->giocatori[giocatoreCorrente]);
-}
-*/
+
 int Game::giocatoreSuccessivo(){
     if(giocatoreCorrente == n_giocatori - 1)
         return 0;
     else{
         return giocatoreCorrente+1;
+    }
 }
-}
-
-int Game::giocatorePrecedente(){
-    if(giocatoreCorrente == 0)
-        return this->n_giocatori--;
-    else
-        return giocatoreCorrente--;
-}
-
 
 //Inizializzo il tabellone
 void Game::initTabellone(){
-//    srand((unsigned)time(NULL));
     tabellone* t = new tabellone();
     this->tabel = t;
 }
-
 
 //Funzione da chiamare una volta terminato il gioco, che setta isFinished = true
 void Game::finish(giocatore *g){
