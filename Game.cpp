@@ -101,7 +101,7 @@ void Game::gameLoop(){
 //Funzione che mostra il turno del giocatore corrente
 void Game::mostraTurno(){
     
-    cout << endl << "- - - - - - - - - - - - - - - - - - - - - - - - - -" << endl << endl;
+    cout <<endl<<"- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - "<<endl<<endl;
     cout << "E' il turno di: " << this->giocatori[giocatoreCorrente]->getNome() << endl;
     cout << "Sei sulla casella " << this->giocatori[giocatoreCorrente]->getPos() << endl << endl;
     
