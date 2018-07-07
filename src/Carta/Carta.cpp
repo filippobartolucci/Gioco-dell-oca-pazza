@@ -9,23 +9,19 @@
 #include <cstring>
 #include <iostream>
 
-
-Carta::Carta() {
-	// TODO Auto-generated constructor stub
-}
-
 Carta::Carta(char const * mess){
-	strcpy(this->__messaggio , mess);
+	strcpy(this->messaggio , mess);
+	this->next = NULL;
 }
 
 void Carta::setMessaggio(char const * mess){
-	strcpy(this->__messaggio , mess);
+	strcpy(this->messaggio , mess);
 }
 
 char* Carta::getMessaggio(){
-	return this->__messaggio;
+	return this->messaggio;
 };
 
-Carta::~Carta() {
-	// TODO Auto-generated destructor stub
-}
+Carta::~Carta() {;}
+void Carta::effetto_carta(giocatore* g[], int giocatoreCorrente, int n_giocatori, int dimT){;}
+
