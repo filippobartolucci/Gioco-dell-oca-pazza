@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <cstdlib>
 
-#include "Colors.hpp"
+#include "../Colors/Colors.hpp"
 
 #define MAX_CHAR_NAME 40
 

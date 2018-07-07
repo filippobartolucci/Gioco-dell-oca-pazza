@@ -8,7 +8,7 @@
 #ifndef FORTUNA_H_
 #define FORTUNA_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 class Fortuna : public Carta { //sottoclasse di carta
 

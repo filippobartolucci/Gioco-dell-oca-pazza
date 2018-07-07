@@ -11,8 +11,9 @@
 #include <iostream>
 #include <unistd.h>
 
-#include "tabellone.hpp"
-#include "Domande.hpp"
+#include "../Tabellone/tabellone.hpp"
+#include "../Domande/Domande.hpp"
+#include "../Mazzo/Mazzo.hpp"
 
 #define spostamento 5
 

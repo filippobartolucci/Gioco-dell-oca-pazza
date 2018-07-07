@@ -8,7 +8,7 @@
 #ifndef GIOCO_DELL_OCA_PAZZA_SRC_CARTA_DOMANDA_H_
 #define GIOCO_DELL_OCA_PAZZA_SRC_CARTA_DOMANDA_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 
 using namespace std;

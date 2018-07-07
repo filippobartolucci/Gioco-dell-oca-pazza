@@ -5,7 +5,7 @@
  *      Author: polis
  */
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 #include <cstring>
 #include <iostream>
 

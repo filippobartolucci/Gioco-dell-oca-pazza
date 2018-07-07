@@ -10,10 +10,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "Game.hpp"
-#include "casella.hpp"
-#include "Domande.hpp"
-#include "Carta.hpp"
+#include "../Game/Game.hpp"
+#include "../Casella/casella.hpp"
+#include "../Domande/Domande.hpp"
+#include "../Carta/Carta.hpp"
 using namespace std;
 
 Game::Game(){

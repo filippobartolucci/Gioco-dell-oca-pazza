@@ -6,7 +6,7 @@
 //  Copyright © 2018 Francesco Cerio. All rights reserved.
 //
 
-#include "Game.hpp"
+#include "../src/Game/Game.hpp"
 
 using namespace std;
 

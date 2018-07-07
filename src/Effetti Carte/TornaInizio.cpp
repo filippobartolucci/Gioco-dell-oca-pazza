@@ -5,7 +5,7 @@
  *      Author: polis
  */
 
-#include "TornaInizio.hpp"
+#include "../Effetti Carte/TornaInizio.hpp"
 
 TornaInizio::TornaInizio():Carta ("Torna alla partenza ") {
 }

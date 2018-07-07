@@ -8,7 +8,7 @@
 #ifndef RILANCIADADO_H_
 #define RILANCIADADO_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 class Rilancia_Dado : public Carta { //sottoclasse di carta
 

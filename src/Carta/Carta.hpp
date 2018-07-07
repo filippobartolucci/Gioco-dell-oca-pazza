@@ -9,7 +9,7 @@
 #define CARD_H_
 
 #define TIPI_CARTE 6
-#include "giocatore.hpp"
+#include "../giocatore/giocatore.hpp"
 
 
 class Carta {

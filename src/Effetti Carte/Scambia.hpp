@@ -8,7 +8,7 @@
 #ifndef SCAMBIA_H_
 #define SCAMBIA_H_
 
-#include "Carta.hpp"
+#include "../Carta/Carta.hpp"
 
 class Scambia : public Carta { //sottoclasse di carta
 

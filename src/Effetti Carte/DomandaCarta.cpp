@@ -5,9 +5,9 @@
  *      Author: polis
  */
 
-#include "DomandaCarta.hpp"
+#include "../Effetti Carte/DomandaCarta.hpp"
 
-#include "Domande.hpp"
+#include "../Domande/Domande.hpp"
 
 #include <cstring>
 #include <iostream>

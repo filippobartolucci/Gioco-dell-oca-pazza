@@ -3,8 +3,8 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "casella.hpp"
-#include "Colors.hpp"
+#include "../Casella/casella.hpp"
+#include "../Colors/Colors.hpp"
 
 #define spostamento 5
 
