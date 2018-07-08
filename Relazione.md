@@ -30,7 +30,7 @@ Testuale, si gioca interamente da terminale
 # Compilare il programma 
 Per compilare il programma dai sorgenti o effettuare delle modifiche.
 
-Necessario l'utilizzo di <b>CMake<b/> [[Download qui!]](https://cmake.org/install/) 
+Necessario l'utilizzo di <b>CMake</b> [[Download qui!]](https://cmake.org/install/) 
 - Eseguire da terminale il comando <b>cmake </b> nella cartella src del progetto
 - Per creare l'eseguibile eseguire il comando <b>make</b>, rimanendo nella stessa directory
 - Infine eseguire il gioco con il seguente comando:
