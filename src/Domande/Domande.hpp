@@ -10,7 +10,7 @@
 #define Domande_hpp
 
 #define NUM_RISPOSTE 4
-#define NUM_DOMANDE 19
+#define NUM_DOMANDE 20
 #include <stdio.h>
 #include <cstdlib>
 #include <iostream>
