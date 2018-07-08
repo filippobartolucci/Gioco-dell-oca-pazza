@@ -13,7 +13,7 @@
 
 #include "../giocatore/giocatore.hpp"
 #include "../Tabellone/tabellone.hpp"
-#include "../dado/Dado.hpp"
+#include "../Dado/Dado.hpp"
 #include "../Mazzo/Mazzo.hpp"
 
 #define MAX_GIOCATORI 4
