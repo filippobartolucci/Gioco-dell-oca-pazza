@@ -27,14 +27,11 @@ Interfaccia testuale, si gioca interamente da terminale
     * Domanda
     * Arrivo
 
-# Eseguire il programma
-Per eseguire il programma  aprire il file <b>GOP</b> da terminale 
-
 # Compilare il programma 
 Per compilare il programma dai sorgenti o effettuare delle modifiche.
 
 Necessario l'utilizzo di <b>CMake<b/> [Download](https://cmake.org/install/) 
-- Eseguire da terminale il comando <b>cmake .</b> nella cartella src del progetto
+- Eseguire da terminale il comando <b>cmake </b> nella cartella src del progetto
 - Per creare l'eseguibile eseguire il comando <b>make</b>, rimanendo nella stessa directory
 - Infine eseguire il gioco con il seguente comando:
 ##### Unix
@@ -45,13 +42,40 @@ Necessario l'utilizzo di <b>CMake<b/> [Download](https://cmake.org/install/)
 ```
 GOP
 ```
- 
+   
+# Eseguire il programma
+Per eseguire il programma  aprire il file <b>GOP</b> da terminale 
+
 # Implementazione 
-Il gioco è eseguibili interamente da terminale. Vengono utilizzati i codici delle tabelle colori ANSI per colore l'output su terminale.
 
+## ANSI
+Essendo l'interfaccia del terminale priva di parte grafica, abbiamo pensato di utilizzare una sequenza di caratteri ASCII, detta ANSI, che permette di controllare l'output a video, come i colori del testo.
 
-<b> Giocatori: </b>
+Le funzioni ANSI utilizzate per questo progetto controllano esclusivamente il colore del testo e sono formate da una sequenza di caratteri del tipo:
+#### Escape Code
+```
+\ESC[Valuem
+```
+   - ESC: Escape indicato dal valore ```\x1b```;
+   - Value: Valori numerici, compresi tra 31 e 36, utilizzati per colorare il testo;
+   - m: Carattere terminale che indica la fine della sequenza ANSI 
+  
+## Programmazione ad oggetti
+Per rendere lo sviluppo più pratico e intuitivo abbiamo scelto la programmazione ad oggetti che ci ha permesso di dividere i componenti necessari per lo sviluppo in classi, a loro volta divise in due file ```.hpp``` e ```.cpp```.
 
+Questo ci ha permesso di avere una suddivisione chiara e di facile comprensione sia per noi, che ci abbiamo lavorato, che per chi voglia leggere i file e comprendere le varie parti dello sviluppo.
+
+## Tema Cinema e Serie TV
+Abbiamo voluto inserire all'interno del gioco anche delle domande che trattassero un argomento preciso e abbiamo scelto il tema Cinema e Serie TV, spaziando tra diversi generi, come Fantasy, Thriller, Horror, Commedia, Drama.
+
+Le domande vengono scelte in maniera casuale e vengono proposte al giocatore quattro possibili risposte, alle quali si può rispondere inserendo una lettera minusola compresa tra la ```a``` e la ```d```.
+
+## Classi
+
+<b> Giocatore: </b>
+* Nella classe giocatore sono presenti i parametri ```nome``` (array di char), ```posizione``` (int) e ```colore``` (string)
+* Ogni giocatore inizia dalla posizione 0 e durante l'esecuzione si traccia il suo avanzamento
+* All'inizio del gioco viene assegnato un preciso colore ad ogni giocatore
 
 
 <b>Tabellone e Caselle:</b>
@@ -106,6 +130,10 @@ La classe Carta è estesa dalle seguenti classi :
   
   
 <b> Domande: </b>
+* La classe Domande è formata da una Lista da una ```struct``` contenente 20 domande diverse.
+* Per la scelta casuale delle domande abbiamo utilizzato la funzione ```srand()``` che in maniera casuale ci estrae una domanda 
+* La funzione ```ask()``` verifica che la risposta sia corretta e in caso affermativo, il giocatore avanzerà nel tabellone di 5 caselle, altrimenti tornerà indietro di 5 caselle.
+
 # Sviluppato da 
  * Francesco Cerio
  * Francesco Polisena

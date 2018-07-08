@@ -26,7 +26,6 @@ class giocatore{
   private:
 
     char nome[MAX_CHAR_NAME];
-    int numTurni;
     int posizione;
     string colore;
     
