@@ -6,9 +6,7 @@
  */
 
 #include "../Effetti Carte/DomandaCarta.hpp"
-
 #include "../Domande/Domande.hpp"
-
 #include <cstring>
 #include <iostream>
 
@@ -25,9 +23,11 @@ void DomandaCarta::effetto_carta(giocatore* g[], int giocatoreCorrente, int n_gi
     
         g[giocatoreCorrente]->saltaTurno();
         cout <<"Perdi un turno";
+
     }
+
     
-    else {
+    }else{
         
         cout << "Avanzi di 5 caselle" << endl;
         if (g[giocatoreCorrente]->getPos() + 5 <= dimT)
