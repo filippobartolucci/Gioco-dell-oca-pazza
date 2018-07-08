@@ -24,8 +24,6 @@ void DomandaCarta::effetto_carta(giocatore* g[], int giocatoreCorrente, int n_gi
         g[giocatoreCorrente]->saltaTurno();
         cout <<"Perdi un turno";
 
-    }
-
     
     }else{
         
