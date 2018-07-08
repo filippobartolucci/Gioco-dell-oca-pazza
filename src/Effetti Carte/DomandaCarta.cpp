@@ -21,12 +21,12 @@ void DomandaCarta::effetto_carta(giocatore* g[], int giocatoreCorrente, int n_gi
     cout << endl;
 	risposta_giusta = ask();
     
-    if(!risposta_giusta)
+    if(!risposta_giusta){
     
         g[giocatoreCorrente]->saltaTurno();
-        cout <<"Perdi un turno"
+        cout <<"Perdi un turno";
     
-    else {
+    }else{
         
         cout << "Avanzi di 5 caselle" << endl;
         if (g[giocatoreCorrente]->getPos() + 5 <= dimT)
