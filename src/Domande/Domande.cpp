@@ -12,13 +12,13 @@
 using namespace std;
 
 domanda domande[NUM_DOMANDE] = {
-    /*
+    
     {"In quale film Nicolas Cage ruba 50 auto in una notte?", {
         "a - Fuori di testa",
         "b - Con Air",
         "c - Fuori in 60 secondi",
         "d - Drive Angry"}, 'c'},
-    */
+    
     {"Con quale film Leonardo Di Caprio ha vinto l'Oscar?",{
         "a - Titanic",
         "b - The Wolf Of Wall Street",
