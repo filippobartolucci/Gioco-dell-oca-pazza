@@ -3,13 +3,13 @@ Gioco dell'oca versione digitale per il progetto del corso di Programmazione Uni
 Per lo sviluppo del progetto ci siamo serviti della piattaforma <b>GitHub</b> 
 
 # Interfaccia
-Interfaccia testuale, si gioca interamente da terminale 
+Testuale, si gioca interamente da <b>terminale </b>
 
 
 # Caratteristiche
 *  Da 2 a 4 giocatori
 
-* Carte 
+* 6 Carte 
     * Fortuna 
     * Domanda
     * Fermo 
@@ -30,10 +30,11 @@ Interfaccia testuale, si gioca interamente da terminale
 # Compilare il programma 
 Per compilare il programma dai sorgenti o effettuare delle modifiche.
 
-Necessario l'utilizzo di <b>CMake<b/> [Download](https://cmake.org/install/) 
+Necessario l'utilizzo di <b>CMake</b> [[Download qui!]](https://cmake.org/install/) 
 - Eseguire da terminale il comando <b>cmake </b> nella cartella src del progetto
 - Per creare l'eseguibile eseguire il comando <b>make</b>, rimanendo nella stessa directory
 - Infine eseguire il gioco con il seguente comando:
+
 ##### Unix
 ```
 ./GOP
@@ -43,8 +44,10 @@ Necessario l'utilizzo di <b>CMake<b/> [Download](https://cmake.org/install/)
 GOP
 ```
    
+   
+   
 # Eseguire il programma
-Per eseguire il programma  aprire il file <b>GOP</b> da terminale 
+Per eseguire il programma aprire il file <b>GOP</b> da terminale 
 
 # Implementazione 
 
@@ -68,7 +71,7 @@ Questo ci ha permesso di avere una suddivisione chiara e di facile comprensione 
 ## Tema Cinema e Serie TV
 Abbiamo voluto inserire all'interno del gioco anche delle domande che trattassero un argomento preciso e abbiamo scelto il tema Cinema e Serie TV, spaziando tra diversi generi, come Fantasy, Thriller, Horror, Commedia, Drama.
 
-Le domande vengono scelte in maniera casuale e vengono proposte al giocatore quattro possibili risposte, alle quali si può rispondere inserendo una lettera minusola compresa tra la ```a``` e la ```d```.
+Le domande vengono scelte in maniera casuale e vengono proposte al giocatore quattro possibili risposte, alle quali si può rispondere inserendo una lettera minuscola compresa tra la ```a``` e la ```d```.
 
 ## Classi
 
@@ -79,7 +82,7 @@ Le domande vengono scelte in maniera casuale e vengono proposte al giocatore qua
 
 
 <b>Tabellone e Caselle:</b>
-* La classe del tabellone è composta da un array di caselle di dimensione variabile, da un minimo di 40 caselle a un massimo di 80. Si è scelto di salvare le caselle in un array per poter accedere in modo diretto a caselle in modo non sequenziale
+* La classe del tabellone è composta da un array di caselle di dimensione variabile, da un minimo di 40 caselle a un massimo di 80. Si è scelto di salvare le caselle in un array per poter accedere direttamente alle caselle in modo non sequenziale
 * Il costruttore del tabellone setta la prima e l'ultima casella come Inizio e Arrivo mentre il resto delle caselle è generato casualmente dal costruttore delle caselle secondo le seguenti probabilità:
      
       - Casella Vuota    3/8
@@ -89,9 +92,9 @@ Le domande vengono scelte in maniera casuale e vengono proposte al giocatore qua
       - Casella Domanda  1/8
       - Casella Pesca    1/8
 
-* Ogni casella ha un campo privato in cui è salvato il tipo, realizzato come enumeration (Vuota, Avanti, Indietro,...)
-* Gli effetti delle caselle vengono applicati dalla funzione effetto() del tabellone che tramite uno switch gestiste i vari tipi di effetti associati a ogni casella 
-* La funzione stampaTabellone() stampa a terminale tutto il tabellone di gioco su due colonne e mostra un <b>"x"</b> colorato nelle posizioni corrispondenti dei giocatori 
+* Ogni casella ha un campo privato in cui è salvato il tipo, realizzato come <b>enumeration</b> (Vuota, Avanti, Indietro,...)
+* Gli effetti delle caselle vengono applicati dalla funzione <b>effetto()</b> del tabellone che tramite uno switch gestiste i vari tipi di effetti associati a ogni casella 
+* La funzione <b>stampaTabellone()</b> stampa a terminale tutto il tabellone di gioco su due colonne e mostra un <b>"x"</b> colorato nelle posizioni corrispondenti dei giocatori 
  
 
 <b> Carta: </b>
@@ -130,9 +133,12 @@ La classe Carta è estesa dalle seguenti classi :
   
   
 <b> Domande: </b>
-* La classe Domande è formata da una Lista da una ```struct``` contenente 20 domande diverse.
+* La classe Domande è formata da una Lista di una ```struct``` contenente 20 domande diverse.
 * Per la scelta casuale delle domande abbiamo utilizzato la funzione ```srand()``` che in maniera casuale ci estrae una domanda 
 * La funzione ```ask()``` verifica che la risposta sia corretta e in caso affermativo, il giocatore avanzerà nel tabellone di 5 caselle, altrimenti tornerà indietro di 5 caselle.
+
+##CMake
+Per facilitare il processo di compilazione ci siamo affidati all'utility <b>CMake</b> che permette di ottenere facilmente un <b>Makefile</b> già scritto con il quale compilare il programma da terminale
 
 # Sviluppato da 
  * Francesco Cerio
