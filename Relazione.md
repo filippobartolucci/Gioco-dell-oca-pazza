@@ -3,7 +3,7 @@ Gioco dell'oca versione digitale per il progetto del corso di Programmazione Uni
 Per lo sviluppo del progetto ci siamo serviti della piattaforma <b>GitHub</b> 
 
 # Interfaccia
-Testuale, si gioca interamente da terminale 
+Testuale, si gioca interamente da <b>terminale </b>
 
 
 # Caratteristiche
@@ -34,6 +34,7 @@ Necessario l'utilizzo di <b>CMake</b> [[Download qui!]](https://cmake.org/instal
 - Eseguire da terminale il comando <b>cmake </b> nella cartella src del progetto
 - Per creare l'eseguibile eseguire il comando <b>make</b>, rimanendo nella stessa directory
 - Infine eseguire il gioco con il seguente comando:
+
 ##### Unix
 ```
 ./GOP
@@ -46,7 +47,7 @@ GOP
    
    
 # Eseguire il programma
-Per eseguire il programma  aprire il file <b>GOP</b> da terminale 
+Per eseguire il programma aprire il file <b>GOP</b> da terminale 
 
 # Implementazione 
 
