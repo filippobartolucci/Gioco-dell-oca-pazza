@@ -62,5 +62,5 @@ Premi invio per andare avanti e segui le istruzioni a schermo
  * Filippo Bartolucci
  
  # Licenza 
- GNU
+ MIT
  
