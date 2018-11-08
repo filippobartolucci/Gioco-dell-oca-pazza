@@ -61,3 +61,6 @@ Premi invio per andare avanti e segui le istruzioni a schermo
  * Francesco Polisena
  * Filippo Bartolucci
  
+ # Licenza 
+ GNU
+ 
